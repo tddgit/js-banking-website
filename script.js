@@ -202,3 +202,28 @@ btnScrollTo.addEventListener("click", (e) => {
 //   },
 //   true
 // );
+
+const h1 = document.querySelector("h1");
+console.log(h1.querySelectorAll(".highlight"));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = "red";
+h1.lastElementChild.style.color = "orange";
+
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+// h1.closest(".header").style.background = "var(--gradient-secondary)";
+
+//Going sideways: siblings
+
+console.log("previousElementSibling", h1.previousElementSibling);
+console.log("nextElementSibling", h1.nextElementSibling);
+console.log("previousElement", h1.previousElement);
+console.log("hextElement", h1.hextElement);
+
+console.log(h1.parentElement.children);
+
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = "scale(0.5)";
+});
