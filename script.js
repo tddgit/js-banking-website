@@ -29,6 +29,16 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+//PAGE NAVIGATION
+
+document.querySelectorAll(".nav__link").forEach((el) => {
+  el.addEventListener("click", function (e) {
+    e.preventDefault();
+    const id = this.getAttribute("href");
+    document.querySelector(id).scrollIntoView();
+  });
+});
+
 console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
@@ -44,6 +54,7 @@ console.log(document.getElementsByClassName("btn"));
 
 //.insertnAdjacentHTML
 
+//COOKIE_MESSAGE
 const message = document.createElement("div");
 message.classList.add("cookie-message");
 // message.textContent = "We use cookie for improved functionality";
@@ -109,6 +120,7 @@ message.style.width = "120%";
 // // Dont use it overwrites all other classes
 // logo.className = "jonas";
 
+//BUTTON SCROLLING
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 
 const section1 = document.querySelector("#section--1");
@@ -136,15 +148,45 @@ btnScrollTo.addEventListener("click", (e) => {
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
-const h1 = document.querySelector("h1");
-const alertH1 = (e) => {
-  alert("addEventListener:  Great! you are reading the heading");
-  // h1.removeEventListener("mouseenter", alertH1);
-};
-
-h1.addEventListener("mouseenter", alertH1);
-setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
+// const h1 = document.querySelector("h1");
+// const alertH1 = (e) => {
+//   alert("addEventListener:  Great! you are reading the heading");
+//   // h1.removeEventListener("mouseenter", alertH1);
+// };
+//
+// h1.addEventListener("mouseenter", alertH1);
+// setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
 
 // h1.onmouseenter = (e) => {
 //   alert("onmouseenter: Great");
 // };
+//
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) + min);
+//
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+//
+// console.log(randomColor());
+// document.querySelector(".nav__link").addEventListener("click", function (e) {
+//   console.log("LINK", e.target);
+//   console.log(e.currentTarget === this);
+//   this.style.backgroundColor = randomColor();
+//   // e.stopPropagation();
+// });
+//
+// document.querySelector(".nav__links").addEventListener("click", function (e) {
+//   console.log("BAR", e.target);
+//   this.style.backgroundColor = randomColor();
+//   console.log(e.currentTarget === this);
+// });
+//
+// document.querySelector(".nav").addEventListener(
+//   "click",
+//   function (e) {
+//     console.log("NAV", e.target);
+//     this.style.backgroundColor = randomColor();
+//     console.log(e.currentTarget === this);
+//   },
+//   true
+// );
